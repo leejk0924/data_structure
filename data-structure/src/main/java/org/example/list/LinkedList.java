@@ -10,9 +10,9 @@ public class LinkedList<E> implements ListInterface<E> {
     }
 
     public Node<E> getNode(int index) {
-        if (index >= -1 && index <= numItems) {
+        if (index >= -1 && index <= numItems-1) {
             Node<E> currNode = head;
-            for (int i = 0; i < index; i++) {
+            for (int i = 0; i <= index; i++) {
                 currNode = currNode.next;
             }
             return currNode;
@@ -25,7 +25,7 @@ public class LinkedList<E> implements ListInterface<E> {
             Node<E> prevNode = getNode(index - 1);
             Node<E> newNode = new Node<>(item, prevNode.next);
             prevNode.next = newNode;
-            numItems++;
+            this.numItems++;
         }
     }
 
